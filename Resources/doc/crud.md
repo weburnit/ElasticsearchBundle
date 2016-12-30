@@ -49,7 +49,10 @@ In addition manager provides repository access, which enables direct access to t
 ```php
 
 $manager = $this->get('es.manager');
-$repo = $manager->getRepository('AppBundle:Content');
+/**
+* getRepository('AmceBundle:Content') is deprecated
+*/
+$repo = $manager->getRepository(Content::class);
 
 ```
 

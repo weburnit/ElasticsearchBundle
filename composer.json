@@ -1,5 +1,5 @@
 {
-    "name": "ongr/elasticsearch-bundle",
+    "name": "weburnit/elasticsearch-bundle",
     "description": "Elasticsearch bundle for Symfony.",
     "type": "symfony-bundle",
     "homepage": "http://ongr.io",
@@ -29,11 +29,5 @@
     "autoload": {
         "psr-4": { "ONGR\\ElasticsearchBundle\\": "" },
         "exclude-from-classmap": ["/Tests/", "/Test/"]
-    },
-    "minimum-stability": "dev",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "5.0-dev"
-        }
     }
 }

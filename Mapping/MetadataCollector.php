@@ -338,7 +338,6 @@ class MetadataCollector
     {
         $cacheName = 'ongr.metadata.document.'.md5($namespace);
 
-        $namespace = $this->getClassName($namespace);
         $this->enableCache && $mapping = $this->cache->fetch($cacheName);
 
         if (isset($mapping) && $mapping) {
@@ -350,17 +349,5 @@ class MetadataCollector
         $this->enableCache && $this->cache->save($cacheName, $mapping);
 
         return $mapping;
-    }
-
-    /**
-     * Returns fully qualified class name.
-     *
-     * @param string $className
-     *
-     * @return string
-     */
-    public function getClassName($className)
-    {
-        return $this->finder->getNamespace($className);
     }
 }

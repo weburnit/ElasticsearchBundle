@@ -171,19 +171,20 @@ class Manager
     }
 
     /**
-     * Returns repository by document class.
+     * Returns repository by document class. Exp: $manager->getRepository(\App\Namespace\Document::class)
      *
-     * @param string $className FQCN or string in Bundle:Document format
+     * @param $namespace
      *
      * @return Repository
+     * @throws \InvalidArgumentException
+     * @internal param string $className FQCN or string in Bundle:Document format
+     *
      */
-    public function getRepository($className)
+    public function getRepository($namespace)
     {
-        if (!is_string($className)) {
+        if (!is_string($namespace)) {
             throw new \InvalidArgumentException('Document class must be a string.');
         }
-
-        $namespace = $this->getMetadataCollector()->getClassName($className);
 
         if (isset($this->repositories[$namespace])) {
             return $this->repositories[$namespace];
