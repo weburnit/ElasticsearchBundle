@@ -110,9 +110,9 @@ class MetadataCollector
 
         $cacheName =  'ongr.metadata.mapping.' . md5($name.serialize($config));
 
-        $this->enableCache && $mappings = $this->cache->contains($cacheName);
+        $this->enableCache && $mappings = $this->cache->fetch($cacheName);
 
-        if (isset($mappings)) {
+        if (isset($mappings) && $mappings) {
             return $mappings;
         }
 
@@ -239,7 +239,7 @@ class MetadataCollector
         $cacheName = 'ongr.metadata.analysis.'.md5(serialize($bundles));
         $this->enableCache && $typesAnalysis = $this->cache->fetch($cacheName);
 
-        if (isset($typesAnalysis)) {
+        if (isset($typesAnalysis) && $typesAnalysis) {
             return $typesAnalysis;
         }
 
@@ -341,7 +341,7 @@ class MetadataCollector
         $namespace = $this->getClassName($namespace);
         $this->enableCache && $mapping = $this->cache->fetch($cacheName);
 
-        if (isset($mapping)) {
+        if (isset($mapping) && $mapping) {
             return $mapping;
         }
 
